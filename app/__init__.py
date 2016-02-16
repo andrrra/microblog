@@ -21,6 +21,6 @@ if not app.debug:
     credentials = None
     if MAIL_USERNAME or MAIL_PASWORD:
         credentials = (MAIL_USERNAME, MAIL_PASWORD)
-    mail_handler = STMPHandler((MAIL_SERVER, MAIL_PORT), 'no-reply@' + MAIL_SERVER, ADMINS, 'microblog failurie', credentials)
+    mail_handler = SMTPHandler((MAIL_SERVER, MAIL_PORT), 'no-reply@' + MAIL_SERVER, ADMINS, 'microblog failurie', credentials)
     mail_handler.setLevel(logging.ERROR)
     app.logger.addHandler(mail_handler)
